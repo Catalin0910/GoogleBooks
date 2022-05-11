@@ -16,11 +16,11 @@ const Login = () => {
   return (
     <div>
       <GoogleLogin
-        clientId="669939593405-eaev1uf1mr1at9ep30e85iijf6oich4b.apps.googleusercontent.com"
+        clientId="118361486356-m3aqa2v3ovfebk5fep84kbuo60dfatut.apps.googleusercontent.com"
         buttonText="Login"
         onSuccess={handleLoginData}
         onFailure={responseGoogle}
-        href="/main"
+        href="http://localhost:3000/main"
       />
     </div>
   );

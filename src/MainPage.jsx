@@ -23,8 +23,8 @@ function MainPage() {
 
   const handleSubmit = () => {
     setLoading(true);
-    if (maxResults > 40 || maxResults < 1) {
-      toast.error("max results must be between 1 and 40");
+    if (maxResults > 50 || maxResults < 1) {
+      toast.error("Cautari maximem intre 1 si 50");
     } else {
       axios
         .get(
@@ -33,7 +33,7 @@ function MainPage() {
         .then((res) => {
           if (startIndex >= res.data.totalItems || startIndex < 1) {
             toast.error(
-              `max reults must be between 1 and ${res.data.totalItems}`
+              `cautari maxime intre 1 si ${res.data.totalItems}`
             );
           } else {
             if (res.data.items.length > 0) {
@@ -56,12 +56,12 @@ function MainPage() {
           className="display-2 text-center text-white mb-3"
           style={{ zIndex: 2 }}
         >
-          Books from Google
+          Carti de pe Google
         </h1>
         <div style={{ width: "60%", zIndex: 2 }}>
           <InputGroup size="lg" className="mb-3">
             <Input
-              placeholder="Book Search"
+              placeholder="Cauta cartea dorita"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
             />
@@ -73,21 +73,21 @@ function MainPage() {
           </InputGroup>
           <div className="d-flex text-white justify-content-center">
             <FormGroup>
-              <Label for="maxResults">Max Results</Label>
+              <Label for="maxResults">Rezultat maxim</Label>
               <Input
                 type="number"
                 id="maxResults"
-                placeholder="Max Results"
+                placeholder="Numar maxim"
                 value={maxResults}
                 onChange={(e) => setMaxResults(e.target.value)}
               />
             </FormGroup>
             <FormGroup className="ml-5">
-              <Label for="startIndex">Start Index</Label>
+              <Label for="startIndex">Numarul minim</Label>
               <Input
                 type="number"
                 id="startIndex"
-                placeholder="Start Index"
+                placeholder="Numarul minim"
                 value={startIndex}
                 onChange={(e) => setStartIndex(e.target.value)}
               />
